@@ -63,3 +63,27 @@ insert into Reserves(SID,BID,DAY)
 values(74,103,'1998-08-10');
 
 select * from Reserves;
+
+_________________
+Q1. Find all sailors with a rating above 7
+
+select * from Sailors
+where SRATING > 7;
+
+Q2. Find the colors of boats reserved by Lubber.
+
+select BCOLOR,BNAME,SNAME
+from Boats B
+inner join Reserves R on B.BID=R.BID
+inner join Sailors s on R.SID=S.SID
+where SNAME='lubber';
+
+Q3.  Find the names of sailors who have reserved all boats
+
+select S.SID,SNAME,R.BID,BNAME
+from Sailors S
+inner join Reserves R on S.SID = R.SID
+inner join Boats B on R.BID=B.BID;
+
+Q4.  Find the names of sailors who have reserved both a red and a green boat
+
