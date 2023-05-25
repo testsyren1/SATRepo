@@ -112,7 +112,7 @@ CREATE TABLE emp(empno int , e_name varchar(15),
  
 -- 3)  Change the name of column/field Emp_no to E_no
 ALTER TABLE emp
-CHANGE empno e_no INT ;s
+CHANGE empno e_no INT ;
 
 -- 4) Modify the column width of the job field of emp table
 ALTER TABLE emp
