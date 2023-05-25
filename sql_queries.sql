@@ -207,6 +207,7 @@ where rating < 9
 
 select * from lowratingmovie
 ------------------------------
+
 Creating table for classes and teacher
 
 CREATE TABLE Classes (
