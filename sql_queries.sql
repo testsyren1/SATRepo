@@ -206,4 +206,24 @@ select * from movies
 where rating < 9
 
 select * from lowratingmovie
+------------------------------
+Creating table for classes and teacher
+
+CREATE TABLE Classes (
+  ClassID INT PRIMARY KEY,
+  ClassName VARCHAR(50),
+  TeacherID INT,
+  FOREIGN KEY (TeacherID) REFERENCES Teachers(TeacherID)
+);
+
+CREATE TABLE Teachers (
+  TeacherID INT PRIMARY KEY,
+  TeacherName VARCHAR(50),
+  Subject VARCHAR(50)
+);
+-------------------------------------
+
+
+
+
           
