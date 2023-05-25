@@ -87,3 +87,25 @@ inner join Boats B on R.BID=B.BID;
 
 Q4.  Find the names of sailors who have reserved both a red and a green boat
 
+----------------------------------------------------------------------
+-- 4th QUES
+CREATE TABLE emp(empno int , e_name varchar(15),
+ e_address varchar(20) , e_phn_no varchar(10),
+ dept_no int ,dept_name varchar(15) , job_id char , salary int);
+ 
+ select * from emp;
+ -- 1)  Add a new column; HIREDATE to the existing relation
+ alter table emp
+ add column hiredate date;
+ 
+ -- 2) Change the datatype ofJOB ID from char to varchar2
+ alter table emp
+ modify job_id varchar(10);
+ 
+-- 3)  Change the name of column/field Emp_no to E_no
+ALTER TABLE emp
+CHANGE empno e_no INT ;s
+
+-- 4) Modify the column width of the job field of emp table
+ALTER TABLE emp
+ MODIFY job_id VARCHAR(12);
