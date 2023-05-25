@@ -12,3 +12,17 @@ values('e101' , 'amit' , 'production' , 45000 ,
  ('e106' , 'mahesh' , 'civil' , 145000 , '2003-09-20' , 'mumbai');
  
  select * from employee;
+
+-- iv) 
+select empno , emp_name , salary 
+from employee
+where salary > 120000;
+
+-- v)
+ select * from employee
+ order by emp_name desc;
+ 
+--  vi)
+select empno , emp_name , salary 
+from employee
+where emp_name = 'amit' and  salary > 50000;
