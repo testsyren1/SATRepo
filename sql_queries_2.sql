@@ -86,6 +86,14 @@ inner join Reserves R on S.SID = R.SID
 inner join Boats B on R.BID=B.BID;
 
 Q4.  Find the names of sailors who have reserved both a red and a green boat
+  
+SELECT s.sname 
+FROM Sailors s
+JOIN Reserves r ON s.sid = r.sid
+JOIN Boats b ON r.bid = b.bid
+WHERE b.bcolor IN ('red', 'green')
+GROUP BY s.sname 
+HAVING COUNT( distinct b.bcolor) = 2;
 
 
 Q5.  create view for Find the names of sailors who have not reserved a red boat
