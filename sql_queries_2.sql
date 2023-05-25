@@ -87,7 +87,7 @@ inner join Boats B on R.BID=B.BID;
 
 Q4.  Find the names of sailors who have reserved both a red and a green boat
   
-ssssSELECT s.sname 
+SELECT s.sname 
 FROM Sailors s
 JOIN Reserves r ON s.sid = r.sid
 JOIN Boats b ON r.bid = b.bid
