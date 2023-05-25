@@ -206,4 +206,3 @@ select * from movies
 where rating < 9
 
 select * from lowratingmovie
-          
