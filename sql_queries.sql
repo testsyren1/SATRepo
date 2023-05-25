@@ -39,85 +39,7 @@ select empno , emp_name , salary
 from employee
 where emp_name = 'amit' and  salary > 50000;
 
--- 1.a) Create Triggers and implement insert ,delete and update on employee table.
- 
- select * from emp;
- 
- -- INSERT TRIGGER
- -- before insert trigger
- create or replace trigger before_insert
-before insert on emp
-for each row
-begin
-:new.doj := SYSDATE - 30 ;
-END;
- 
-insert into emp(empno , emp_name , dept , salary  , branch)
- values
- ('e107' , 'ramesh' , 'it' , 50000  , 'chennai');
- 
-  select * from emp;
-  
- -- after insert trigger
- create table emp_copy(empno varchar2(5) , emp_name varchar2(8) ,
-dept varchar2(20) , salary int , doj date , branch varchar2(15));
 
-select * from emp_copy;
-
-create or replace trigger after_insert
-after insert on emp
-for each row
-begin
-insert into emp_copy
-(empno , emp_name , dept , salary , doj , branch)
-values(:new.empno , :new.emp_name , :new.dept , 
-:new.salary , :new.doj , :new.branch);
-END;
-
-select * from emp;
-select * from emp_copy;
- 
-insert into emp(empno , emp_name , dept , salary  , branch)
- values
- ('e108' , 'suresh' , 'hr' , 75000  , 'hyderabad');
- 
- 
- 
- -- DELETE TRIGGER
- select * from emp;
-
-create or replace trigger aft_dlt
-after delete on emp
-for each row
-begin
-insert into emp_copy(empno , emp_name , dept , salary  , branch)
-values(:old.empno , :old.emp_name ,
-:old.dept , :old.salary , :old.branch);
-end;
-
-delete from emp
-where empno = 'e107';
-
-select * from emp_copy;
-
--- UPDATE TRIGGER
-create or replace trigger after_update
-after update on emp
-for each row
-begin
-insert into emp_copy(empno , emp_name , dept , salary  , branch)
-values(:old.empno , :old.emp_name ,
-:old.dept , :old.salary , :old.branch);
-end;
-
-select * from emp;
-select * from emp_copy;
-
-update emp
-set branch = 'pune'
-where empno = 'e108';
- 
- 
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --                 Q-2   Movies Database 
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -196,7 +118,7 @@ where rating = (select max(rating)
                 from movies)
 
 ---- 8. Find the Horry Potter Actor
-select * from movies 
+select Actor from title
 where title = 'Horry Potter'
 
 ----9. Create View for who got rating below 9
