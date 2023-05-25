@@ -196,7 +196,7 @@ where rating = (select max(rating)
                 from movies)
 
 ---- 8. Find the Horry Potter Actor
-select * from movies 
+select Actor from title
 where title = 'Horry Potter'
 
 ----9. Create View for who got rating below 9
