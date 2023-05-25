@@ -38,3 +38,53 @@ where salary > 120000;
 select empno , emp_name , salary 
 from employee
 where emp_name = 'amit' and  salary > 50000;
+
+
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--                 Q-2   Movies Database 
+-- ---------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE movies(title varchar(20), director varchar(20), movie_year year, rating float);
+insert into movies(title, director, movie_year, rating) 
+values('Annamayya', 'Ragavendrarao', 1997, 9.0),('KGF', 'Prasanth', 2022, 8.5),('Bahubali', 'Rajamouli', 2015, 9.2),
+('Horry Potter', 'Chriscolumbus', 1997, 8.0),
+('Sarkaru Vari pata','Parasuram', 2022, 7.5);
+
+select * FROM movies;
+-- ---------------------------------------------------
+create table actors(actors varchar(20), entry_year year);
+insert into actors(actors,entry_year)
+values('Nagarjuna',1994);
+insert into actors(actors,entry_year)
+values('Yash',2014);
+insert into actors(actors,entry_year)
+values('Prabhas',2017);
+insert into actors(actors,entry_year)
+values('Daniel', 1901);
+insert into actors(actors,entry_year)
+values('Mahesh',2005);
+
+select * FROM actors;
+-- ------------------------------------------------------
+create table title(actor varchar(20), title varchar(20));
+insert into title(actor,title)
+values('Nagarjuna', 'Annamayya'),('Yash', 'KGF'),
+('Prabhas', 'Bahubali'),('Daniel', 'Horry Potter'),
+('Mahesh', 'Sarkaru Vari pata');
+
+select * FROM movies;
+-- -----------------------------------------------------
+create table director(director varchar(20), dyear year);
+insert into director(director,dyear)
+values('Rajamouli', 2001),('Chris columbus', 1980),
+('Parasuram', 2009),('Ragavendrarao', 1975);
+
+select * FROM movies;
+-- -----------------------------------------------------
+
+
+
+
+
+
+          
