@@ -25,4 +25,16 @@ values('e101' , 'amit' , 'production' , 45000 ,
  FROM employee
  group by emp_name;
  
- 
+ -- 4. Retrieve total salary of employee which is greater than >120000
+select empno , emp_name , salary 
+from employee
+where salary > 120000;
+
+-- 5.  Display name of employee in descending order
+ select * from employee
+ order by emp_name desc;
+
+-- 6. Display details of employee whose name is AMIT and salary greater than 50000
+select empno , emp_name , salary 
+from employee
+where emp_name = 'amit' and  salary > 50000;
