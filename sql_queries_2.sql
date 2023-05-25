@@ -87,6 +87,19 @@ inner join Boats B on R.BID=B.BID;
 
 Q4.  Find the names of sailors who have reserved both a red and a green boat
 
+
+Q5.  create view for Find the names of sailors who have not reserved a red boat
+
+create view v_SailorName AS
+(
+select S.SID,SNAME,BCOLOR
+from Sailors S
+inner join Reserves R on S.SID = R.SID
+inner join Boats B on R.BID=B.BID
+where BCOLOR != 'red'
+);
+
+select * from v_SailorName;
 ----------------------------------------------------------------------
 -- 4th QUES
 CREATE TABLE emp(empno int , e_name varchar(15),
