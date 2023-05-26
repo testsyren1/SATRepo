@@ -1,0 +1,21 @@
+# Here are some practice questions for you to work on using the Sakila database:
+
+Retrieve the names of all customers who live in the city with ID 200.
+
+Retrieve the rental information for the film with the title "Casablanca."
+
+Retrieve the total number of films in each language.
+
+Retrieve the top 5 most rented films.
+
+Retrieve the staff members who have not made any payments.
+
+Retrieve the customer ID, first name, and last name of the customers who have rented films but have not made any payments.
+
+Retrieve the rental information for the films rented by a specific customer (customer ID 10) in alphabetical order by film title.
+
+Retrieve the customers who have made more than 10 rentals.
+
+Retrieve the films in the "Comedy" category with a rental rate of less than 2.00.
+
+Retrieve the customer ID, first name, and last name of the customers who have rented all the films in a specific category (e.g., "Horror").
