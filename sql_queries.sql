@@ -150,7 +150,7 @@ values('Nagarjuna', 'Annamayya'),('Yash', 'KGF'),
 ('Prabhas', 'Bahubali'),('Daniel', 'Horry Potter'),
 ('Mahesh', 'Sarkaru Vari pata');
 
-select * FROM movies;
+select * FROM title;
 -- -----------------------------------------------------
 create table director(director varchar(20), dyear year);
 insert into director(director,dyear)
@@ -160,7 +160,69 @@ values('Rajamouli', 2001),('Chris columbus', 1980),
 select * FROM movies;
 -- -----------------------------------------------------
 
+--- 2.Find MovieS Made after 1997
+select title as Movies 
+from movies  
+where movie_year > 1997
 
+---- 3.Find movies made by Rajamouli after 1997
+
+select title as Movies 
+from movies 
+where director = 'Rajamouli' and movie_year > 1997 
+
+----- 4. Find all movies and their ratings 
+
+select title as Movies , rating from movies
+
+----- 5.Find all actors and directors 
+select 
+ m.Director, t.Actor 
+from movies m
+inner join title t on m.Title=t.Title
+
+---- 6.Find Yash movies with Prasanth
+select m.title as movies
+from movies m
+inner join title t on m.Title=t.Title
+where t.Actor='Yash' and m.Director='Prasanth'
+
+--- 7. Find the Director who got highest rating.
+
+
+select director 
+from movies 
+where rating = (select max(rating)
+                from movies)
+
+---- 8. Find the Horry Potter Actor
+select Actor from title
+where title = 'Horry Potter'
+
+----9. Create View for who got rating below 9
+
+create view lowratingmovie as 
+select * from movies
+where rating < 9
+
+select * from lowratingmovie
+------------------------------
+
+Creating table for classes and teacher
+
+CREATE TABLE Classes (
+  ClassID INT PRIMARY KEY,
+  ClassName VARCHAR(50),
+  TeacherID INT,
+  FOREIGN KEY (TeacherID) REFERENCES Teachers(TeacherID)
+);
+
+CREATE TABLE Teachers (
+  TeacherID INT PRIMARY KEY,
+  TeacherName VARCHAR(50),
+  Subject VARCHAR(50)
+);
+-------------------------------------
 
 
 
