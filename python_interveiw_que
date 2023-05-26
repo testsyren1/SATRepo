@@ -1,35 +1,50 @@
 
 
 1. What is Python? What are its key features?
-   Answer: Python is a high-level, interpreted programming language known for its simplicity and readability. Its key features include dynamic typing, automatic memory management, a large standard library, and support for multiple programming paradigms (such as procedural, object-oriented, and functional programming).
+   Answer: Python is a high-level, interpreted programming language known for its simplicity and readability. 
+   Its key features include dynamic typing, automatic memory management, a large standard library, and support for multiple programming paradigms (such as procedural, object-oriented, and functional programming).
 
 2. What is the difference between Python 2 and Python 3?
-   Answer: Python 2 and Python 3 are two major versions of Python. Python 3 introduced several backward-incompatible changes and improvements over Python 2, such as syntax modifications, Unicode support, and enhanced standard libraries. Python 2 is no longer supported since January 1, 2020, and Python 3 is recommended for new projects.
+   Answer: Python 2 and Python 3 are two major versions of Python. Python 3 introduced several backward-incompatible changes and improvements over Python 2,
+   such as syntax modifications, Unicode support, and enhanced standard libraries. 
+   Python 2 is no longer supported since January 1, 2020, and Python 3 is recommended for new projects.
 
 3. How do you comment in Python?
    Answer: In Python, you can comment a single line using the "#" character. For multiline comments, you can enclose the text within triple quotes (''' or """) at the beginning and end of the comment block.
 
 4. Explain the concept of PEP 8.
-   Answer: PEP 8 is the official style guide for Python code. It provides guidelines on how to format code to enhance readability and maintain consistency. It covers topics such as indentation, naming conventions, comments, and line length limits.
+   Answer: PEP 8 is the official style guide for Python code. It provides guidelines on how to format code to enhance readability and maintain consistency. 
+   It covers topics such as indentation, naming conventions, comments, and line length limits.
 
 5. What is a Python virtual environment?
-   Answer: A Python virtual environment is an isolated environment that allows you to install packages and dependencies specific to a project without affecting the system's global Python installation. It helps in maintaining project dependencies and avoiding conflicts between different projects.
+   Answer: A Python virtual environment is an isolated environment that allows you to install packages and dependencies specific to a project without affecting the system's global Python installation. 
+   It helps in maintaining project dependencies and avoiding conflicts between different projects.
 
 6. What are the built-in data types in Python?
-   Answer: Python provides several built-in data types, including integers, floats, strings, lists, tuples, dictionaries, sets, and booleans. These data types form the foundation for storing and manipulating data in Python.
+   Answer: Python provides several built-in data types, including integers, floats, strings, lists, tuples, dictionaries, sets, and booleans. 
+   These data types form the foundation for storing and manipulating data in Python.
 
 7. Explain the difference between a list and a tuple.
-   Answer: A list and a tuple are both sequence data types, but they have some differences. Lists are mutable, meaning their elements can be modified after creation, while tuples are immutable, and their elements cannot be changed. Lists are defined using square brackets [], whereas tuples use parentheses ().
+   Answer: A list and a tuple are both sequence data types, but they have some differences.
+   Lists are mutable, meaning their elements can be modified after creation, while tuples are immutable, and their elements cannot be changed. 
+   Lists are defined using square brackets [], whereas tuples use parentheses ().
 
 8. What are decorators in Python?
-   Answer: Decorators are a way to modify the behavior of a function or a class without explicitly changing their source code. They allow you to wrap existing functions and add additional functionality before or after the original function call. Decorators use the "@" symbol and are a powerful tool for code reuse and aspect-oriented programming.
+   Answer: Decorators are a way to modify the behavior of a function or a class without explicitly changing their source code. 
+   They allow you to wrap existing functions and add additional functionality before or after the original function call. 
+   Decorators use the "@" symbol and are a powerful tool for code reuse and aspect-oriented programming.
 
 9. How does exception handling work in Python?
-   Answer: Exception handling in Python is done using try-except blocks. The code that might raise an exception is placed within the try block, and if an exception occurs, it is caught and handled in the except block. Multiple except blocks can be used to handle different types of exceptions.
+   Answer: Exception handling in Python is done using try-except blocks. 
+   The code that might raise an exception is placed within the try block, and if an exception occurs, it is caught and handled in the except block.
+   Multiple except blocks can be used to handle different types of exceptions.
 
 10. Explain the concept of generators in Python.
-    Answer: Generators are functions that can be used to create iterators. They use the yield keyword instead of return to return values one at a time, allowing for efficient memory usage when dealing with large datasets or infinite sequences. Generators are iterable and can be used in loops.
+    Answer: Generators are functions that can be used to create iterators. 
+	They use the yield keyword instead of return to return values one at a time, allowing for efficient memory usage when dealing with large datasets or infinite sequences. 
+	Generators are iterable and can be used in loops.
 
 11. What is the difference between a shallow copy and a deep copy in Python?
-    Answer: A shallow copy creates a new object that references the original data, while a deep copy creates a completely independent copy of the original data. Modifying the original data will not affect the deep copy, but it may affect the shallow copy if the shared data is modified.
+    Answer: A shallow copy creates a new object that references the original data, while a deep copy creates a completely independent copy of the original data. 
+	Modifying the original data will not affect the deep copy, but it may affect the shallow copy if the shared data is modified.
 
