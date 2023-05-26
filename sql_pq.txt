@@ -19,3 +19,28 @@ Retrieve the customers who have made more than 10 rentals.
 Retrieve the films in the "Comedy" category with a rental rate of less than 2.00.
 
 Retrieve the customer ID, first name, and last name of the customers who have rented all the films in a specific category (e.g., "Horror").
+
+------------------------------------------------------------
+
+s
+## Here are practice questions using the World Database in MySQL:
+
+Retrieve the names of all countries in the database.
+
+Retrieve the total number of countries in each continent.
+
+Retrieve the population of a specific country (e.g., "United States").
+
+Retrieve the top 5 countries with the highest life expectancy.
+
+Retrieve the languages spoken in a specific country (e.g., "Germany") along with the percentage of speakers.
+
+Retrieve the capital city and its population for each country.
+
+Retrieve the countries with a population greater than 100 million people.
+
+Retrieve the top 5 most spoken languages worldwide along with the number of countries where they are spoken.
+
+Retrieve the countries where English is an official language.
+
+Retrieve the continents and their average life expectancy.
