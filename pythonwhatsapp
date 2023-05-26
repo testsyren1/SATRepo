@@ -1,0 +1,25 @@
+pip install selenium
+
+from selenium import webdriver
+
+# Set the path to the ChromeDriver executable
+chrome_driver_path = '/path/to/chromedriver'
+
+# Create a new Chrome browser instance
+driver = webdriver.Chrome(executable_path=chrome_driver_path)
+
+driver.get('https://web.whatsapp.com')
+
+input('Please scan the QR code and press Enter after logging in to WhatsApp Web.')
+
+def send_whatsapp_message(phone_number, message):
+    # Format the phone number with the country code (without '+' or '00')
+    formatted_number = 'your_country_code' + phone_number
+
+    # Construct the WhatsApp message URL
+    url = f'https://web.whatsapp.com/send?phone={formatted_number}&text={message}'
+
+    # Open the WhatsApp message URL
+    driver.get(url)
+    
+    send_whatsapp_message('recipient_phone_number', 'Hello, this is a test message!')
