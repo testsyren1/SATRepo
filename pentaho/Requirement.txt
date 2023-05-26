@@ -1,0 +1,9 @@
+Project Task: ----------
+Create a data integration workflow to extract data from a CSV file, perform basic transformations, and load the data into a target database table.
+
+Requirements:----------
+
+Extract data from a CSV file named "Sales.csv" that contains information about sales transactions.
+Perform basic data cleaning by removing any empty rows or rows with missing values.
+Transform the data by adding a new calculated field called "TotalSales" that multiplies the "Quantity" and "UnitPrice" columns.
+Load the transformed data into a target table named "SalesData" in a MySQL database.
