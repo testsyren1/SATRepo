@@ -66,7 +66,8 @@ where population > 100000000;
 select language , count(name) as num_countries from countrylanguage cl
 join country c on cl.CountryCode = c.code
 group by language 
-order by num_countries desc;
+order by num_countries desc
+limit 5;
 
 -- Retrieve the countries where English is an official language.
 
