@@ -1,28 +1,91 @@
 # Here are some practice questions for you to work on using the Sakila database:
 
-Retrieve the names of all customers who live in the city with ID 200.
+-- Retrieve the names of all customers who live in the city with ID 200. 
 
-Retrieve the rental information for the film with the title "Casablanca."
+select first_name , last_name , city from customer c
+join address a on c.address_id = a.address_id
+join city ci on a.city_id = ci.city_id
+where ci.city_id = 200;   
 
-Retrieve the total number of films in each language.
+-- Retrieve the rental information for the film with the title "Casablanca."
+select r.rental_id , rental_date , return_date , amount  from rental r
+join payment p on r.rental_id = p.rental_id
+join inventory i on r.inventory_id = i.inventory_id
+join film f on i.film_id = f.film_id
+where title = "CASABLANCA SUPER";
 
-Retrieve the top 5 most rented films.
+-- Retrieve the total number of films in each language.
 
-Retrieve the staff members who have not made any payments.
+select count(*) as num_films , name as language from film f
+join language l on f.language_id  = l.language_id
+group by name;
 
-Retrieve the customer ID, first name, and last name of the customers who have rented films but have not made any payments.
+-- Retrieve the top 5 most rented films.
 
-Retrieve the rental information for the films rented by a specific customer (customer ID 10) in alphabetical order by film title.
+select title , count(distinct rental_id) as num_times_rented
+from rental r
+join inventory i on r.inventory_id = i.inventory_id
+join film f on i.film_id = f.film_id
+group by title
+order by num_times_rented desc
+limit 5;
 
-Retrieve the customers who have made more than 10 rentals.
+-- Retrieve the staff members who have not made any payments.
 
-Retrieve the films in the "Comedy" category with a rental rate of less than 2.00.
+select s.staff_id , s.first_name , s.last_name , p.payment_id
+from staff s
+left join payment p
+on s.staff_id = p.staff_id
+where p.amount = 0;
 
-Retrieve the customer ID, first name, and last name of the customers who have rented all the films in a specific category (e.g., "Horror").
+-- Retrieve the customer ID, first name, and last name of the customers who have rented films but have not made any payments.
+
+select c.customer_ID, first_name, last_name , r.rental_id, p.payment_id , f.title from customer c
+ join payment p on c.customer_id = p.customer_id
+ join rental r on c.customer_id = r.customer_id
+join inventory i on r.inventory_id = i.inventory_id
+join film f on i.film_id = f.film_id
+where p.amount  = 0;
+
+-- Retrieve the rental information for the films rented by a specific customer (customer ID 10) in alphabetical order by film title.
+
+select r.rental_id , title ,  rental_date , return_date , p.payment_id , p.amount from rental r
+join payment p on r.rental_id  = p.rental_id
+join inventory i on r.inventory_id = i.inventory_id
+join film f on i.film_id = f.film_id
+where r.customer_id = 10
+order by title ;
+
+-- Retrieve the customers who have made more than 10 rentals.
+
+select c.customer_id , c.first_name , c.last_name , count(rental_id) as rentals  from customer c 
+inner join rental r on c.customer_id = r.customer_id
+group by c.customer_id , c.first_name , c.last_name 
+having rentals > 10;
+
+-- Retrieve the films in the "Comedy" category with a rental rate of less than 2.00.
+
+select f.film_id , title , rental_rate , c.name 
+from film f
+join film_category fc on f.film_id = fc.film_id
+join category c on fc.category_id = c.category_id
+where c.name = "Comedy" and rental_rate < 2.00;
+
+/*  Retrieve the customer ID, first name, and last name of the customers who have rented
+ all the films in a specific category (e.g., "Horror") */
+ 
+ select c.customer_ID, first_name, last_name , r.rental_id,  f.title from customer c
+ join rental r on c.customer_id = r.customer_id
+join inventory i on r.inventory_id = i.inventory_id
+join film f on i.film_id = f.film_id
+join film_category fc on f.film_id = fc.film_id
+join category ca on fc.category_id = ca.category_id
+where ca.name = "Horror";
 
 ------------------------------------------------------------
 
  /* World Database Queries */
+ 
 ## Here are practice questions using the World Database in MySQL:
 
 -- Retrieve the names of all countries in the database.
