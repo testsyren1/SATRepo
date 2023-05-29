@@ -1,0 +1,24 @@
+Requirement:
+
+ You have been given two data sources: a CSV file containing customer data and a MySQL database table with product information. Your task is to extract data from both sources, perform a lookup based on a common field, and load the merged data into a PostgreSQL database table.
+
+Data Sources:
+
+CSV file: customers.csv
+
+Columns: customer_id, name, email, address
+MySQL database: products
+
+customer_id,name,email,address
+1,John Doe,johndoe@example.com,123 Main St
+2,Jane Smith,janesmith@example.com,456 Elm St
+3,Michael Johnson,michaeljohnson@example.com,789 Oak St
+
+
+Table name: products
+Columns: product_id, product_name, category, price
+
+product_id,product_name,category,price
+1,Product A,Category 1,10.99
+2,Product B,Category 2,24.99
+3,Product C,Category 1,19.99
