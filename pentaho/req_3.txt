@@ -1,5 +1,7 @@
 Requirement: --------
-You have been given two data sources: a CSV file containing sales data and a MySQL database table with product information. Your task is to extract data from both sources, perform data transformations, calculate the total sales amount for each product, and load the aggregated data into a MySQL database table.
+You have been given two data sources: a CSV file containing sales data and a MySQL database table with product information. 
+Your task is to extract data from both sources, perform data transformations, calculate the total sales amount for each product,
+and load the aggregated data into a MySQL database table.
 
 CSV file: sales.csv
 
