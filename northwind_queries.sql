@@ -11,9 +11,6 @@ order by price desc;
 select customername , address from customers
 where country = "USA";
 
-select * from employees;
-select * from customers;
-
 -- Retrieve the categories with more than 10 products from the "Categories" table.
 
 select categoryname ,count(productID) as num_products from categories
@@ -27,14 +24,13 @@ select productname , quantity from orderdetails
 join products on orderdetails.ProductID = products.ProductID
 where quantity > 50;
 
-
 -- How many customers are there in the database?
 
 select count(distinct customerID) as num_customers from customers;
 
 -- What are the different categories of products available?
 
-select  distinct c.categoryname from products p
+select distinct c.categoryid , distinct c.categoryname  from products p
 join categories c on p.CategoryID = c.CategoryID;
 
 -- How many orders have been placed by each customer?
@@ -44,9 +40,6 @@ join categories c on p.CategoryID = c.CategoryID;
  group by CustomerName;
 
 -- What is the total revenue generated from all orders?
-
-select * from products;
-select * from orderdetails;
 
 select sum(p.price * od.quantity) as total_revenue
 from products p
@@ -134,4 +127,3 @@ limit 1;
 
 select count(orderid) as num_orders , year(OrderDate) as year from orders
 group by year(OrderDate);
-
