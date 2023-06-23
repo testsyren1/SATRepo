@@ -1,3 +1,4 @@
+# test 3
 ----- Triggers:  Triggers are the special kind of stored procedures, and they are automatically executed when there is 
                  any change in the database.
 ----- Uses:      -> It also allows recursion.
