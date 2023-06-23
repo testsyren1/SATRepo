@@ -1,3 +1,4 @@
+# test jira 2
 create table employee(empno varchar(5) , emp_name varchar(8) ,
 dept varchar(20) , salary int , doj date , branch varchar(15));
 
