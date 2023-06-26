@@ -1,3 +1,4 @@
+# Jira test ticket 3
 -- Retrieve all products from the "Products" table.
 
 select * from products;
