@@ -1,4 +1,4 @@
-
+              #sql interview Questions#
 Q1. What is SQL, and what are its main components?
 A1: SQL stands for Structured Query Language, and it is a programming language used for managing relational databases. The main components of SQL are Data Definition Language (DDL), Data Manipulation Language (DML), Data Control Language (DCL), and Transaction Control Language (TCL).
 
