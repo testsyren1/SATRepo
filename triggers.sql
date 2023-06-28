@@ -2,7 +2,6 @@
 ----- Triggers:  Triggers are the special kind of stored procedures, and they are automatically executed when there is 
                  any change in the database.
 
-Trigger is block of code,which automatically triggers,when some event is occuers.
 ----- Uses:      -> It also allows recursion.
 				 -> Used for auditing purposes
 # Definition: Triggers are statements that are executed automatically in the order of occurrence of any event.
