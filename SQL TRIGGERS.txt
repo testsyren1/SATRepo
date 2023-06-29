@@ -1,0 +1,253 @@
+Triggers:
+
+A trigger is a user defined sql command that is invoked automatically in response to an event such as insert,delete or update.
+
+
+create database triggers;
+use triggers;
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+#Before insert trigger#
+
+-- Create the customers table
+CREATE TABLE customers (
+  cus_id INT PRIMARY KEY,
+  name VARCHAR(50),
+  age INT,
+  date_of_birth DATE,
+  email VARCHAR(100)
+);
+
+select * from customers;
+
+DELIMITER //
+
+CREATE TRIGGER age_verify
+BEFORE INSERT ON customers
+FOR EACH ROW
+BEGIN
+  IF NEW.age < 0 THEN
+    SET NEW.age = 0;
+  END IF;
+END //
+
+DELIMITER ;
+
+
+
+-- Insert sample values into the customers table
+INSERT INTO customers (cus_id, name, age, date_of_birth, email) VALUES
+  (1, 'John Smith', -45, '1988-05-10', 'john@example.com'),
+  (2, 'Jane Doe', -89, '1995-09-22', 'jane@example.com'),
+  (3, 'Michael Johnson', -42, '1981-03-15', 'michael@example.com'),
+  (4, 'Emily Wilson', 31, '1992-11-07', 'emily@example.com'),
+  (5, 'David Brown', -47, '1976-07-18', 'david@example.com'),
+  (6, 'Sarah Thompson', 24, '1999-02-03', 'sarah@example.com'),
+  (7, 'Robert Garcia', -39, '1984-12-29', 'robert@example.com'),
+  (8, 'Jennifer Lee', 33, '1989-08-14', 'jennifer@example.com'),
+  (9, 'Daniel Martinez', 27, '1996-06-09', 'daniel@example.com'),
+  (10, 'Olivia Taylor', -96, '1993-10-25', 'olivia@example.com');
+  
+  
+  select * from customers;
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+#After insert trigger#
+
+
+-- Create the customer table
+CREATE TABLE customer (
+  id INT auto_increment primary KEY,
+  name VARCHAR(50),
+  age INT,
+  date_of_birth DATE,
+  email VARCHAR(100)
+);
+
+select * from customer;
+
+
+
+
+
+CREATE TABLE message (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  message_id INT,
+  message VARCHAR(255) NOT NULL
+);
+
+
+
+-- Insert sample values into the customer table
+INSERT INTO customer (id, name, age, date_of_birth, email) VALUES
+  (1, 'John Smith', -45, null, 'john@example.com'),
+  (2, 'Jane Doe', -89, '1995-09-22', 'jane@example.com'),
+  (3, 'Michael Johnson', -42, '1981-03-15', 'michael@example.com'),
+  (4, 'Emily Wilson', 31, '1992-11-07', 'emily@example.com'),
+  (5, 'David Brown', -47, '1976-07-18', 'david@example.com'),
+  (6, 'Sarah Thompson', 24, '1999-02-03', 'sarah@example.com'),
+  (7, 'Robert Garcia', -39, '1984-12-29', 'robert@example.com'),
+  (8, 'Jennifer Lee', 33, null, 'jennifer@example.com'),
+  (9, 'Daniel Martinez', 27, '1996-06-09', 'daniel@example.com'),
+  (10, 'Olivia Taylor', -96, null, 'olivia@example.com');
+  
+  
+  select * from customer;
+
+
+DELIMITER //
+
+DELIMITER //
+
+CREATE TRIGGER check_nulls_in_dob
+AFTER INSERT ON customer
+FOR EACH ROW
+BEGIN
+  IF NEW.date_of_birth IS NULL THEN
+    INSERT INTO message (message_id, message)
+    VALUES (NEW.id, CONCAT('Hi ', NEW.name, ', please update the date of birth properly'));
+  END IF;
+END //
+
+DELIMITER ;
+
+
+
+
+
+
+select * from customer;
+
+select * from message;
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+#Before update#
+
+
+
+
+
+-- Create the employees table
+CREATE TABLE employees (
+  emp_id INT PRIMARY KEY,
+  emp_name VARCHAR(50),
+  age INT,
+  salary DECIMAL(10, 2)
+);
+
+-- Insert sample records into the employees table
+INSERT INTO employees (emp_id, emp_name, age, salary) VALUES
+  (1, 'John Smith', 35, 50000.00),
+  (2, 'Jane Doe', 28, 45000.00),
+  (3, 'Michael Johnson', 42, 65000.00),
+  (4, 'Emily Wilson', 31, 55000.00),
+  (5, 'David Brown', 47, 75000.00),
+  (6, 'Sarah Thompson', 24, 40000.00),
+  (7, 'Robert Garcia', 39, 60000.00),
+  (8, 'Jennifer Lee', 33, 55000.00),
+  (9, 'Daniel Martinez', 27, 48000.00),
+  (10, 'Olivia Taylor', 30, 52000.00);
+  
+  delimiter //
+  create trigger update_trigger
+  before update on employees
+  for each row
+  begin
+  if new.salary < 500000 then 
+  set new.salary = 10000000;
+  elseif new.salary > 500000 then 
+  set new.salary = 5000000000;
+  end if;
+  end //
+  delimiter
+  
+
+UPDATE employees
+SET salary = 60000;
+
+select * from employees;
+
+
+
+  
+----------------------------------------------------------------------------------------------------------------------------------------------------
+#BEFORE DELETE#
+
+
+
+
+
+
+CREATE TABLE salarydelete (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  eid INT,
+  validfrom DATE NOT NULL,
+  amount DECIMAL(10, 2),
+  deletedate TIMESTAMP DEFAULT NOW()
+);
+
+
+
+
+
+-- Create the salary table
+CREATE TABLE salary (
+  eid INT,
+  validfrom DATE,
+  amount DECIMAL(10, 2)
+);
+
+-- Insert sample records into the salary table
+INSERT INTO salary (eid, validfrom, amount) VALUES
+  (1, '2023-01-01', 50000.00),
+  (1, '2023-02-01', 55000.00),
+  (2, '2023-01-01', 45000.00),
+  (2, '2023-02-01', 48000.00),
+  (3, '2023-01-01', 60000.00),
+  (3, '2023-02-01', 62000.00),
+  (4, '2023-01-01', 55000.00),
+  (4, '2023-02-01', 60000.00),
+  (5, '2023-01-01', 65000.00),
+  (5, '2023-02-01', 70000.00);
+  
+  
+  SELECT * FROM SALARY;
+  SELECT * FROM salarydelete;
+  
+  DELIMITER //
+  CREATE TRIGGER SALARY_DELETE
+  BEFORE DELETE ON SALARY
+  for each row
+  begin
+  insert into salarydelete(eid,validfrom,amount)
+  values(old.eid,old.validfrom,old.amount);
+  end //
+  delimiter
+  
+  
+  
+  delete from salary where eid=1;
+  
+  select * from SALARY;
+  SELECT * FROM salarydelete;
+  
+  
+  
+  
+ 
+
+
+
+
+
+
+
