@@ -1,0 +1,103 @@
+Stored Procedure:
+
+A stored procedure is a named set of SQL statements that are stored in a database and can be executed repeatedly.
+It is a type of database object that allows you to encapsulate complex logic or a sequence of actions into a single unit.
+Stored procedures are commonly used for tasks such as data manipulation, data validation, business logic implementation, and repetitive tasks.
+
+
+
+
+
+create database stored_procedure;
+
+use stored_procedure;
+create table person(id int,name varchar(200),Is_Active int);
+insert into person(id,name,Is_Active) 
+values(1,"john",1),
+      (2,"Marsh",1),
+      (3,"Richard",1),
+      (4,"Dehra",1),
+      (5,"colin",1);
+      
+      
+select * from stored_procedure.person;
+
+DELIMITER //
+CREATE PROCEDURE select_person()
+BEGIN
+    SELECT id, name, Is_Active FROM person;
+END //
+DELIMITER ;
+
+call select_person()
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#IN Parameter#
+select * from stored_procedure.person;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE INSERT_PERSON(IN PERSON_NAME VARCHAR(100))
+BEGIN
+INSERT INTO PERSON(id,name,Is_Active) values(8,PERSON_NAME,1);
+END //
+
+DELIMITER;
+
+
+CALL INSERT_PERSON('Marsh');
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#UPDATE#
+
+
+SELECT * FROM person;
+
+DELIMITER //
+
+CREATE PROCEDURE UPDATE_PERSON(IN PERSON_NAME VARCHAR(100),IN PERSON_ID INT)
+BEGIN
+UPDATE PERSON
+SET name = PERSON_NAME
+WHERE id = PERSON_ID;
+END //
+
+DELIMITER;
+
+CALL UPDATE_PERSON('Dehra',4);
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#DELETE#
+
+
+#DELETE#
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE DELETE_PERSON(IN PERSON_ID INT)
+   BEGIN
+   DELETE FROM person 
+   WHERE id=PERSON_ID;
+   END //
+
+DELIMITER;
+
+CALL DELETE_PERSON(1);
+
+CALL DELETE_PERSON(1);
+
+SELECT * FROM person;
+
+
+
