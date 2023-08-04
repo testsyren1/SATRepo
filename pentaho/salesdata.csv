@@ -1,0 +1,11 @@
+TransactionID,Product,Quantity,UnitPrice,Customer
+1,Product A,5,10.99,John Doe
+2,Product B,2,19.99,Jane Smith
+3,Product C,3,8.5,Robert Johnson
+4,Product A,10,10.99,Sarah Williams
+5,Product B,4,19.99,Michael Brown
+6,Product C,,8.5,Emily Davis
+7,Product A,3,10.99,David Anderson
+8,Product B,6,19.99,Olivia Taylor
+9,Product C,2,8.5,William Martinez
+10,Product A,8,10.99,Sophia Rodriguez

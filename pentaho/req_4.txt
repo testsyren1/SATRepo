@@ -1,0 +1,44 @@
+Task: Perform customer segmentation based on purchase behavior.
+
+Data Sources:
+
+Customers: Contains information about individual customers, including customer ID, name, and age.
+
+Customers Data:
+
+Customer_ID	Name	Age
+1	John	35
+2	Emily	28
+3	Michael	42
+4	Sophia	31
+5	Benjamin 45
+
+Orders: Contains information about individual orders, including order ID, customer ID, purchase amount, and purchase date.
+Orders Data:
+
+Order ID	Customer ID	Purchase Amount
+1	1	1500
+2	2	800
+3	3	1200
+4	4	400
+5	5	950
+
+Requirements:
+
+Read the customers and orders data from CSV files or database tables.
+Calculate the total purchase amount for each customer by summing up the purchase amounts from all their orders.
+Classify customers into different segments based on their total purchase amount:
+High-value customers: Total purchase amount greater than a certain threshold (e.g., $1,000).
+Mid-value customers: Total purchase amount between a certain range (e.g., $500 to $1,000).
+Low-value customers: Total purchase amount below a certain threshold (e.g., $500).
+Output the customer ID, name, total purchase amount, and segment classification to a separate file or database table.
+
+
+Output:
+
+Customer ID	Name	TPurchase Amount	Segment
+1	John	1500	High-value
+2	Emily	800	     Mid-value
+3	Michael	1200	High-value
+4	Sophia	400	    Low-value
+5	Benjamin 950	Mid-value
